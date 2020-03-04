@@ -1,9 +1,9 @@
 from django.db import models
+from formularios.validaciones import *
 
 # Create your models here.
 class General(models.Model):
     idgenr_general = models.AutoField(primary_key=True)
-    placa = models.CharField('Placa',max_length=50, blank=False, null=False)
     nombre = models.CharField('Nombre',max_length=50, blank=False, null=False)
 
     class Meta:
@@ -16,10 +16,10 @@ class General(models.Model):
 
 class Usuario(models.Model):
     id_usuario = models.AutoField(primary_key=True)
-    usuario = models.CharField(max_length=45, blank=False, null=False)
-    cedula = models.CharField(max_length= 45, blank=False, null=False)
-    placa_carro = models.CharField(max_length=50, blank=False, null=False)
-    descripcion_problema= models.TextField(max_length=200)
+    usuario = models.CharField(max_length=45, blank=False, null=False,validators=[validate_descripcion])
+    cedula = models.CharField(max_length= 45, blank=False, null=False,validators=[validate_cedula])
+    placa_carro = models.CharField(max_length=50, blank=False, null=False,validators=[validar_placa])
+    descripcion_problema= models.TextField(max_length=200,validators=[validate_descripcion])
     imagen=models.ImageField(max_length=50)
     id_genr_estado = models.ForeignKey(General,on_delete=models.CASCADE, related_name="fk_usuario_estado", db_column='id_genr_estado')
 
@@ -34,10 +34,13 @@ class Usuario(models.Model):
 class Productos(models.Model):
     id_productos = models.AutoField(primary_key=True)
     id_usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, db_column='id_usuario')
-    precio =models.IntegerField( blank=False, null=False)
+    nombre_producto=models.CharField(max_length=50,blank=False, null=False,validators=[validate_descripcion])
+    descripcion = models.TextField(max_length=50, blank=False, null=False,validators=[validate_descripcion])
+    categoria = models.CharField(max_length=30, blank=False, null=False, validators=[validate_descripcion])
+    precio =models.IntegerField( blank=False, null=False,validators=[espacios])
     imagen = models.ImageField(max_length=50)
-    fecha_entrada =models.DateField(blank=False, null=False)
-    fecha_salida =models.DateField(blank=False, null=False)
+    fecha_entrada =models.DateField(blank=False, null=False,validators=[validate_fecha])
+    fecha_salida =models.DateField(blank=False, null=False,validators=[validate_fecha])
 
     class Meta:
         verbose_name = 'producto del usuario',

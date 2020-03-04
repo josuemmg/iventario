@@ -15,7 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from inventario.view import *
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',inventario, name='inventario'),
+    ##################producto################################
+    path('crear/',CreatePorducto.as_view(),name='producto_create'),
+    path('editar/<int:pk>',UpdateProducto.as_view(), name="producto_editar"),
+    path('eliminar/<int:pk>', DeleteProducto.as_view(), name="producto_eliminar"),
+
 ]
