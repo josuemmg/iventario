@@ -1,4 +1,5 @@
 from django.db import models
+from formularios.validaciones import *
 
 class Factura(models.Model):
     id_factura=models.AutoField(primary_key=True)
@@ -10,6 +11,8 @@ class Factura(models.Model):
     cantidad=models.IntegerField(blank=True, null=True, validators=[validate_descripcion])
     iva=models.DecimalField(blank=True, null=True, validators=[validate_descripcion])
     descuento=models.DecimalField(blank=True, null=True, validators=[validate_descripcion])
+    fecha_entrada = models.DateField(auto_now=True, blank=False, null=False, validators=[validate_fecha])
+    fecha_salida = models.DateField(auto_now_add=True, blank=False, null=False, validators=[validate_fecha])
 
 class Detalle(models.Model):
     id_detalle=models.AutoField(primary_key=True)

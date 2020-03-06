@@ -1,10 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'core/base.html' %}
+{% block encabezado %}
+{% endblock encabezado %}
+{% block sidebar %}
+{% endblock sidebar %}
+{% load crispy_forms_tags %}
+{% block contenido_principal %}
+<br><br><br><br><br>
+<form method="POST" action="{% url 'factura_editar' f.id_factura  %}">
+    {% csrf_token %}
+      {% if error %}
+        <h2>{{ error }}</h2>
+     {% else %}
+    <div class="card">
+        <div class="card-header">
+                <header class="cuadro_titulo">
+                    <h4 class="titulo">Editar Factura</h4>
+                </header>
+        </div>
+        <div class="card-body card-block">
+            <form action="#" enctype="multipart/form-data" class="form-horizontal">
+                {{form.nombre_fact|as_crispy_field}}
+                {{form.nombre_usu|as_crispy_field}}
+                {{form.nombre_pro|as_crispy_field}}
+                {{form.direccion|as_crispy_field}}
+                {{form.valor_unitario|as_crispy_field}}
+                {{form.cantidad|as_crispy_field}}
+                {{form.iva|as_crispy_field}}
+                {{form.descuento|as_crispy_field}}
+                {{form.fecha_entrada|as_crispy_field}}
 
-</body>
-</html>
+          </form>}
+        </div>
+    </div>
+</form>
+    {% endif %}
+{% endblock contenido_principal %}

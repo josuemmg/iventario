@@ -1,30 +1,31 @@
-"""sistema_inventario_cl URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
-from inventario.view import *
-from django.conf import settings
-from django.conf.urls.static import static
+from Apps import views
+from factura.views import *
+from inventario.views import *
+from views import *
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('',inventario, name='inventario'),
+   # path('admin/', admin.site.urls),
+    path('', views.home, name="home"),
+    path('sample/', views.sample, name="sample"),
+    path('bienvenido/', views.bienvenido, name="bienvenido"),
+    path('desarrollo/', views.desarrollo, name="desarrollo"),
+    path('diseño/', views.diseño, name="diseño"),
+
     ##################producto################################
-    path('crear/',CreatePorducto.as_view(),name='producto_create'),
+    path('crear/',CreateProducto.as_view(),name='producto_create'),
     path('editar/<int:pk>',UpdateProducto.as_view(), name="producto_editar"),
     path('eliminar/<int:pk>', DeleteProducto.as_view(), name="producto_eliminar"),
+
+    ##################inventario#############################
+    path('crear_inve/',CreateIventario.as_view(),name="crear_inventario"),
+    path('editar_inve/<int:pk>', UpdateProducto.as_view(), name="inventario_editar"),
+    path('eliminar_inve/<int:pk>', DeleteProducto.as_view(), name="inventario_eliminar"),
+
+    ##################factura####################################
+    path('crear_fact/',CreateFactura.as_view(),name="crear_factura"),
+    path('editar_fact/<int:pk>', UpdateFactura.as_view(), name="factura_editar"),
+    path('eliminar_fact/<int:pk>', DeleteFactura.as_view(), name="factura_eliminar"),
 
 ]

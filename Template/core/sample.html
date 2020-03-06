@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Bienvenido{% endblock %}
+{% block content %}
+<main role="main">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-md-3">
+        <img src="{% static 'core/img/placeholder.png' %}" class="img-fluid"/>
+      </div>
+      <div class="col-md-6 mt-3">
+        <h3>LEER </h3>
+        <p>Saber más (*): hay lenguajes interpretados y compilados.
+
+        En los primeros, como Javascript, un programa llamado intérprete ejecuta las sentencias a la vez que las lee del fichero de texto donde están escritas. En estos casos, a los programas también se le suele denominar scripts o guiones.
+            En un compilado, como Java, debemos previamente convertir el fichero de texto a una ‘traducción’ mediante un programa llamado compilador. Ese fichero resultante es el que se ejecutará en el ordenador.</p>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

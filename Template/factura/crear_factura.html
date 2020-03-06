@@ -1,10 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'core/base.html' %}
+{% block encabezado %}
+{% endblock encabezado %}
+{% block sidebar %}
+{% endblock sidebar %}
+{% load crispy_forms_tags %}
+{% block contenido_principal %}
+<form method="POST" action="#">
+    {% csrf_token %}
+    {% if error %}
+    <h2>{{ error }}</h2>
+    {% else %}
+    <header class="cuadro_titulo">
+        <h4 class="titulo text-center">Crear Factura/h4>
+    </header>
+    <br><br>
+    <form action="#" enctype="multipart/form-data" class="form-horizontal" method="post">
+        {{form.nombre_fact|as_crispy_field}}
+        {{form.nombre_usu|as_crispy_field}}
+        {{form.nombre_pro|as_crispy_field}}
+        {{form.direccion|as_crispy_field}}
+        {{form.valor_unitario|as_crispy_field}}
+        {{form.cantidad|as_crispy_field}}
+        {{form.iva|as_crispy_field}}
+        {{form.descuento|as_crispy_field}}
+        {{form.fecha_entrada|as_crispy_field}}
+        <div class="text-center">
 
-</body>
-</html>
+            <button type="submit" class="btn btn-outline-primary">Guardar</button>
+            <button type="reset" class="btn btn-outline-info">Restablecer</button>
+            <a class="btn btn-outline-danger" href="{% url 'sample' %}">Cancelar</a>
+        </div>
+    </form>
+
+</form>
+{% endif %}
+{% endblock contenido_principal %}
+
+{% block footer %}
+{% endblock footer %}

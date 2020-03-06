@@ -1,0 +1,33 @@
+{% extends 'core/base.html' %}
+{% block encabezado %}
+{% endblock encabezado %}
+{% block sidebar %}
+{% endblock sidebar %}
+{% load crispy_forms_tags %}
+{% block contenido_principal %}
+<br><br><br><br><br>
+<form method="POST" action="{% url 'inventario_editar' I.id_inventario  %}">
+    {% csrf_token %}
+      {% if error %}
+        <h2>{{ error }}</h2>
+     {% else %}
+    <div class="card">
+        <div class="card-header">
+                <header class="cuadro_titulo">
+                    <h4 class="titulo">Editar</h4>
+                </header>
+        </div>
+        <div class="card-body card-block">
+            <form action="#" enctype="multipart/form-data" class="form-horizontal">
+                {{form.nombre|as_crispy_field}}
+                {{form.descripcion|as_crispy_field}}
+                {{form.fecha_entrada|as_crispy_field}}
+                {{form.identificacion|as_crispy_field}}
+                {{form.imagen|as_crispy_field}}
+
+          </form>}
+        </div>
+    </div>
+</form>
+    {% endif %}
+{% endblock contenido_principal %}

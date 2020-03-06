@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'inventario',
-    'factura'
+    'factura',
+    'Apps'
 ]
 
 MIDDLEWARE = [
@@ -81,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'sistema_inventario',
         'USER':'root',
-        'PASSWORD':'hakuna',
+        'PASSWORD':'1234',
         'HOST': 'localhost',
         'PORT': 3306,
     }

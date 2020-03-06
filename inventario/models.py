@@ -39,8 +39,8 @@ class Productos(models.Model):
     categoria = models.CharField(max_length=30, blank=False, null=False, validators=[validate_descripcion])
     precio =models.IntegerField( blank=False, null=False,validators=[espacios])
     imagen = models.ImageField(max_length=50)
-    fecha_entrada =models.DateField(blank=False, null=False,validators=[validate_fecha])
-    fecha_salida =models.DateField(blank=False, null=False,validators=[validate_fecha])
+    fecha_entrada =models.DateField(auto_now=True,blank=False, null=False,validators=[validate_fecha])
+    fecha_salida =models.DateField(auto_now_add=True,blank=False, null=False,validators=[validate_fecha])
 
     class Meta:
         verbose_name = 'producto del usuario',
@@ -49,3 +49,19 @@ class Productos(models.Model):
 
     def __int__(self):
         return self.id_productos
+
+class Inventarios(models.Model):
+    id_inventario=models.AutoField(primary_key=True)
+    nombre=models.CharField(max_length=50,blank=False, null=False,validators=[validate_descripcion])
+    descripcion = models.TextField(max_length=50, blank=False, null=False, validators=[validate_descripcion])
+    fecha_entrada = models.DateField(auto_now=True,blank=False, null=False, validators=[validate_fecha])
+    fecha_salida = models.DateField(auto_now_add=True,blank=False, null=False, validators=[validate_fecha])
+    imagen = models.ImageField(max_length=50)
+
+    class Meta:
+        verbose_name = 'nombre',
+        verbose_name_plural = 'nombre',
+        db_table = 'Inventarios'
+
+    def __int__(self):
+        return self.id_inventario

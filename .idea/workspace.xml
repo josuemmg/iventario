@@ -14,6 +14,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -24,10 +25,17 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Sistema/trunk" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\sistema_inven\trunk\Template" />
+      <recent name="C:\Users\user\Desktop\sistema_inven\trunk" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="sistema_inventario_cl" type="Python.DjangoServer" factoryName="Django server">
@@ -77,6 +85,7 @@
       <option name="presentableId" value="Default" />
       <updated>1581312238663</updated>
       <workItem from="1581312240717" duration="3213000" />
+      <workItem from="1583513079695" duration="7067000" />
     </task>
     <servers />
   </component>
@@ -88,9 +97,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1581312325810" />
-    <state x="186" y="11" key="SettingsEditor" timestamp="1581314413825">
+    <state x="186" y="11" key="SettingsEditor" timestamp="1583516938827">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="186" y="11" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1581314413825" />
+    <state x="186" y="11" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1583516938827" />
   </component>
 </project>

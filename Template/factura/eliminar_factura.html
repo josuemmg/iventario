@@ -1,10 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'core/base.html' %}
+{% load staticfiles %}
 
-</body>
-</html>
+{% block encabezado %}
+{% endblock encabezado %}
+{% block sidebar %}
+{% endblock sidebar %}
+
+{% block contenido_principal %}
+
+<div class="modal-dialog modal-lg" role="document">
+
+    <div class="modal-content">
+		
+		      <div class="contenido">
+
+				<form method="POST" action="{% url 'factura_eliminar' f.id_factura %}"> {% csrf_token %}
+
+					 <div class="card shadow mb-4">
+             			 <div class="card-header py-3">
+             			   <h6 class="m-0 font-weight-bold text-danger">Eliminar Factura</h6>
+             			 </div>
+
+								<div class="card-body">
+             			   			¿Esta seguro que deseas eliminar esta Factura?<br>
+             			   			Nombre de la factura : <label>{{f.nombre_fact}}</label><br>
+             			   			<div class="botones">
+        						    <br/>
+        						    <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+										<a class="btn btn-outline-primary" href="{% url 'desarrollo' %}" >Cancelar</a>
+        						    </div>
+        						</div>
+                     </div>
+				</form>
+		      </div>
+	</div>
+</div>
+{% endblock contenido_principal %}
